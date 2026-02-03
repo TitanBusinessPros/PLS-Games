@@ -114,6 +114,39 @@
             position: relative;
         }
 
+        /* Logo Container */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin: 15px 0;
+            width: 100%;
+        }
+
+        .logo-side-image {
+            max-width: 200px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-side-image:hover {
+            transform: scale(1.05);
+        }
+
+        .header-logo {
+            max-width: 600px; /* Increased by 100% from 300px */
+            height: auto;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            /* Initial animation */
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .header-logo:hover {
+            animation-play-state: paused;
+        }
+
         /* Header Ad Images */
         .header-ads-container {
             display: flex;
@@ -133,20 +166,6 @@
         .header-ad-image:hover {
             transform: scale(1.05);
             filter: brightness(1.1);
-        }
-
-        .header-logo {
-            max-width: 300px;
-            height: auto;
-            transition: all 0.5s ease;
-            cursor: pointer;
-            /* Initial animation */
-            animation: float 3s ease-in-out infinite;
-            margin-bottom: 5px;
-        }
-
-        .header-logo:hover {
-            animation-play-state: paused;
         }
 
         .header-title {
@@ -471,6 +490,20 @@
         }
 
         /* Make it a bit nicer on small screens */
+        @media (max-width: 1200px) {
+            .logo-container {
+                gap: 20px;
+            }
+            
+            .header-logo {
+                max-width: 500px;
+            }
+            
+            .logo-side-image {
+                max-width: 180px;
+            }
+        }
+
         @media (max-width: 900px) {
             .page-wrapper {
                 grid-template-rows: auto auto auto;
@@ -522,6 +555,28 @@
             .header-ads-container {
                 gap: 10px;
             }
+
+            .logo-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .header-logo {
+                max-width: 400px;
+                order: 1;
+            }
+            
+            .logo-side-image {
+                max-width: 150px;
+            }
+            
+            .logo-side-image:first-child {
+                order: 2;
+            }
+            
+            .logo-side-image:last-child {
+                order: 3;
+            }
         }
 
         @media (max-width: 600px) {
@@ -536,6 +591,18 @@
 
             .header-ads-container {
                 gap: 8px;
+            }
+            
+            .header-logo {
+                max-width: 300px;
+            }
+            
+            .logo-side-image {
+                max-width: 120px;
+            }
+            
+            .header-title {
+                font-size: 1.5em;
             }
         }
     </style>
@@ -636,7 +703,18 @@
                 </a>
             </div>
             
-            <img src="https://github.com/TitanBusinessPros/PLS-Games/raw/main/PLS-T-Logo-1.png" class="header-logo" id="logo">
+            <!-- Logo Container with Award on Left, Logo in Center, PLS-PL on Right -->
+            <div class="logo-container">
+                <!-- Award Image on Left -->
+                <img src="https://github.com/TitanBusinessPros/PLS-Games/raw/main/award-purcell.jpg" class="logo-side-image" alt="Award">
+                
+                <!-- Main Logo (Increased by 100%) -->
+                <img src="https://github.com/TitanBusinessPros/PLS-Games/raw/main/PLS-Logo-T.png" class="header-logo" id="logo">
+                
+                <!-- PLS-PL Image on Right -->
+                <img src="https://github.com/TitanBusinessPros/PLS-Games/raw/main/pls-pl.jpg" class="logo-side-image" alt="PLS-PL">
+            </div>
+            
             <h1 class="header-title">Welcome To Tulsa's Newest Gaming Platform brought to you by Purcell Line Striping! Check Back Weekly For New Games!</h1>
             <a href="https://www.purcelllinestripingllc.com/" class="add-logo-button" target="_blank">Add Your Logo to the Platform</a>
             <div class="daily-message">Welcome to Tulsa's gaming hub! 🎮
